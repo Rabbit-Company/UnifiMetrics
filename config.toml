@@ -1,0 +1,45 @@
+# ============================================================
+# UniFi Metrics Configuration
+# ============================================================
+
+[unifi]
+# IP address or hostname of the UniFi Controller
+ip = "10.0.0.1"
+
+# API token used for authenticating requests to the UniFi Controller
+api_token = ""
+
+# Time interval (in seconds) between each data polling cycle
+poll_interval = 30
+
+
+[monitoring]
+# Enable or disable collection of UniFi Network device metrics (e.g., APs, switches, gateways)
+network_devices = true
+
+# Enable or disable collection of UniFi Protect sensor metrics (e.g., cameras, doorbells)
+protect_sensors = true
+
+
+[server]
+# IP address to bind the metrics server to
+# Use "0.0.0.0" to listen on all available network interfaces
+bind_address = "0.0.0.0"
+
+# Port on which the metrics HTTP endpoint will be exposed
+port = 8089
+
+# Optional security token for authenticating access to the metrics endpoint
+# If not specified, the endpoint will be publicly accessible
+bearer_token = "secure-monitoring-token-123"
+
+
+[logging]
+# Absolute path to the log file where output will be written
+# If not specified, logs won't get written to a file
+log_file = "/var/log/unifimetrics.log"
+
+# Logging verbosity level — possible values:
+#   trace | debug | info | warn | error
+# Recommended: "info" for production, "debug" for troubleshooting
+log_level = "info"
