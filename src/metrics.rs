@@ -178,25 +178,25 @@ fn generate_metrics_output() -> String {
 		// Uplink TX Rate
 		writeln!(
 			output,
-			"# HELP unifi_device_upload_speed_bytes_per_second Upload speed in bytes/sec"
+			"# HELP unifi_device_upload_speed_bits_per_second Upload speed in bits/sec"
 		)
 		.unwrap();
 		writeln!(
 			output,
-			"# TYPE unifi_device_upload_speed_bytes_per_second gauge"
+			"# TYPE unifi_device_upload_speed_bits_per_second gauge"
 		)
 		.unwrap();
 		writeln!(
 			output,
-			"# UNIT unifi_device_upload_speed_bytes_per_second bytes_per_second"
+			"# UNIT unifi_device_upload_speed_bits_per_second bits_per_second"
 		)
 		.unwrap();
 		for device in devices.values() {
 			if let Some(tx_rate) = device.uplink_tx_rate {
 				writeln!(
 					output,
-					r#"unifi_device_upload_speed_bytes_per_second{{site_id="{}",site_name="{}",device_id="{}",device_name="{}",device_model="{}",ip_address="{}"}} {}"#,
-					device.site_id, device.site_name, device.device_id, device.device_name, device.device_model, device.ip_address, tx_rate / 8.0
+					r#"unifi_device_upload_speed_bits_per_second{{site_id="{}",site_name="{}",device_id="{}",device_name="{}",device_model="{}",ip_address="{}"}} {}"#,
+					device.site_id, device.site_name, device.device_id, device.device_name, device.device_model, device.ip_address, tx_rate
 				).unwrap();
 			}
 		}
@@ -204,25 +204,25 @@ fn generate_metrics_output() -> String {
 		// Uplink RX Rate
 		writeln!(
 			output,
-			"# HELP unifi_device_download_speed_bytes_per_second Download speed in bytes/sec"
+			"# HELP unifi_device_download_speed_bits_per_second Download speed in bits/sec"
 		)
 		.unwrap();
 		writeln!(
 			output,
-			"# TYPE unifi_device_download_speed_bytes_per_second gauge"
+			"# TYPE unifi_device_download_speed_bits_per_second gauge"
 		)
 		.unwrap();
 		writeln!(
 			output,
-			"# UNIT unifi_device_download_speed_bytes_per_second bytes_per_second"
+			"# UNIT unifi_device_download_speed_bits_per_second bits_per_second"
 		)
 		.unwrap();
 		for device in devices.values() {
 			if let Some(rx_rate) = device.uplink_rx_rate {
 				writeln!(
 					output,
-					r#"unifi_device_download_speed_bytes_per_second{{site_id="{}",site_name="{}",device_id="{}",device_name="{}",device_model="{}",ip_address="{}"}} {}"#,
-					device.site_id, device.site_name, device.device_id, device.device_name, device.device_model, device.ip_address, rx_rate / 8.0
+					r#"unifi_device_download_speed_bits_per_second{{site_id="{}",site_name="{}",device_id="{}",device_name="{}",device_model="{}",ip_address="{}"}} {}"#,
+					device.site_id, device.site_name, device.device_id, device.device_name, device.device_model, device.ip_address, rx_rate
 				).unwrap();
 			}
 		}
