@@ -106,14 +106,11 @@ systemctl enable --now unifimetrics
 ## 🔄 Upgrade
 
 ```bash
-# Stop service
-systemctl stop unifimetrics
-
-# Download Pulse Monitor
+# Download latest version of UnifiMetrics
 wget https://github.com/Rabbit-Company/UnifiMetrics/releases/latest/download/unifimetrics-$(uname -m)-gnu
 sudo chmod 755 unifimetrics-$(uname -m)-gnu
 sudo mv unifimetrics-$(uname -m)-gnu /usr/local/bin/unifimetrics
 
-# Start service
-systemctl start unifimetrics
+# Restart service
+systemctl restart unifimetrics
 ```
